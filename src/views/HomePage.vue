@@ -14,7 +14,14 @@
 .my-container {
   margin-top: 10%;
   width: 80%;
+
 }
+@media only screen and (max-width: 600px) {
+  .my-container {
+    width: 100%;
+  }
+}
+
 </style>
 
 <script>

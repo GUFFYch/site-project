@@ -18,7 +18,7 @@
               <v-icon color="blue" size="24">mdi-map-marker</v-icon>
             </v-col>
             <v-col cols="auto">
-              <span class="footer-info">123 Main Street, City, Country</span>
+              <span class="footer-info">City, Country</span>
             </v-col>
           </v-row>
         </v-col>

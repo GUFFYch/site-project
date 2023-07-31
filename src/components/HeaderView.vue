@@ -2,15 +2,12 @@
   <v-app-bar app color="primary" dark class="header">
     <v-container>
       <v-row class="header-row">
-        <v-col cols="1"></v-col>
-        <v-col cols="10" style="text-align: center;">
-          <v-toolbar-title> Logo </v-toolbar-title>
-        </v-col>
-        <v-col cols="1" style="text-align: right;">
-          <a href=""><v-icon class="header-icon">mdi-phone</v-icon></a>
+        <v-col cols="12" class="header-logo-col">
+          <v-toolbar-title class="header-logo">Logo</v-toolbar-title>
         </v-col>
       </v-row>
     </v-container>
+    <a href=""><v-icon class="header-icon">mdi-phone</v-icon></a>
   </v-app-bar>
 </template>
 
@@ -19,22 +16,32 @@
   padding: 0 10%;
 }
 
-/* .header-logo {
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo-col {
+  text-align: center;
+}
+
+.header-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
-
-.header-icon {
-  width: auto;
-  border-radius: 100px;
-  padding: 10%;
-  background-color:cornflowerblue;
-  animation: shake 0.5s;
-  animation-delay: 1s;
-
 }
 
+.header-icon {
+  float:right;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: cornflowerblue;
+  animation: shake 0.5s;
+  animation-delay: 1s;
+}
 
 @keyframes shake {
   0% { transform: rotate(0deg); }
