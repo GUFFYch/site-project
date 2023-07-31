@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify-center>
       <v-col cols="12" style="width: auto; margin: 0 auto;">
-        <v-carousel v-model="activeIndex" hide-delimiters>
+        <v-carousel v-model="activeIndex" hide-delimiters :show-arrows="false">
           <v-carousel-item v-for="(item, index) in images" :key="index" :src="item.src" :alt="item.alt" cover></v-carousel-item>
         </v-carousel>
 
