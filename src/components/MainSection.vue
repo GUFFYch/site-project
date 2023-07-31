@@ -49,9 +49,22 @@
 
         <h1><b>About Us</b></h1>
         <br />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <br>
+        <h2><b>Something else</b></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium tellus ac dolor posuere, id semper arcu vestibulum.</p>
+
       </v-col>
     </v-row>
   </v-container>
@@ -66,6 +79,13 @@ export default {
       cards: [
                 { title: 'Сказочные закаты на дороге', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
                 { title: 'Незабываемые путешествия в дальные страны', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
+                { title: 'Незабываемые путешествия в дальные страны', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
+                { title: 'Сказочные закаты на дороге', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
+                { title: 'Сказочные закаты на дороге', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
+                { title: 'Незабываемые путешествия в дальные страны', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
+                { title: 'Незабываемые путешествия в дальные страны', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 3 },
+                { title: 'Сказочные закаты на дороге', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 3 },
+
               ],
     }
   },
