@@ -1,0 +1,46 @@
+*{
+    transform: 0.5s;
+}
+
+section{
+    width: 90%;
+    margin: 100px auto
+}
+
+.divider{
+    width: 100%!important;
+    height:10px;
+    background-color: #D9D9D9;
+}
+
+.card-footer{
+    width: 80%;
+    margin: 0 auto;
+    background: url(images/gray-sep-h.png) top right repeat-x;
+    padding: 20px 30px 0 30px;
+    font-size: 13px;
+}
+
+.uk-card-header{
+    background-image: url('images/60638bd66183e1001981966a.webp');
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    height: 20vh
+}
+
+.stats{
+    transform: perspective(50px) rotateX(5deg);
+    margin: 0 1px;
+}
+.stats-left{
+    color: white;
+	transform: skew(20deg);
+    background-color: #EA5454;
+}
+
+.stats-right{
+    transform: perspective(50px) rotateX(5deg);
+    background-color: #3BD9CC;
+    color: #333232;
+}
