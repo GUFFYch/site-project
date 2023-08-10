@@ -50,12 +50,6 @@
     position: relative
 }
 
-@media all and (max-width: 400px) {
-    .events_list .item a .img {
-        height:170px
-    }
-}
-
 .events_list .item a .img.svg {
     background-size: auto
 }
@@ -97,8 +91,23 @@
 }
 
 @media all and (max-width: 980px) {
+    h1{
+        font-size: 60px!important;
+    }
+    h2, h3{
+        font-size: 40px!important;
+    }
+    p, a{
+        font-size: 30px!important;
+    }
+    .events_list .item a .img {
+        display: block;
+        height: 400px;
+    }
+
     .events_list .item a .img .status .today {
-        padding-right:10px
+        padding-right: 10px;
+        font-size: 25px;
     }
 }
 
@@ -129,7 +138,6 @@
 .events_list .item a h2 {
     margin: 25px 25px 0 25px;
     padding: 0;
-    font-size: 21px;
     font-weight: 500;
     height: 84px;
     line-height: 28px;
@@ -143,7 +151,6 @@
 
 @media all and (max-width: 400px) {
     .events_list .item a h2 {
-        font-size:19px;
         height: 72px;
         line-height: 24px;
         margin: 20px 20px 0 20px
@@ -156,14 +163,12 @@
     height: 50px;
     line-height: 50px;
     color: #5d5d5d;
-    font-size: 18px;
     font-weight: 300;
     background: url("/images/gray-sep-h.png") bottom left repeat-x
 }
 
 @media all and (max-width: 400px) {
     .events_list .item a .type {
-        font-size:16px;
         height: 42px;
         line-height: 42px;
         margin: 0 20px
@@ -173,7 +178,6 @@
 .events_list .item a time {
     padding-top: 15px;
     color: #5d5d5d;
-    font-size: 13px;
     font-weight: 300;
     margin: 0 25px;
     display: block;
@@ -221,7 +225,6 @@
     height: 68px;
     line-height: 68px;
     text-decoration: none;
-    font-size: 21px;
     text-align: center;
     color: white;
     font-weight: 300;
@@ -310,7 +313,7 @@
 
     .events_list .item {
         width: 85%;
-            float: none;
+        float: none;
         margin: 0 auto;
         padding-left: 0;
         padding-right: 0;
@@ -331,10 +334,10 @@
 @media all and (max-width: 980px) {
     .for-mobile {
         display:flex !important;
-        width: 90%!important;
+        width: 100%;
         text-align: center!important;
         align-items: center!important;
-        background-color: #00a497!important;
+        background-color: #009589!important;
         color: white;
         padding: 10px 0!important;
         margin: 10px auto!important;
@@ -362,15 +365,9 @@
     width: 100%
 }
 
-@media all and (max-width: 400px) {
-    .events_list .item a .mobile_btn {
-        margin:0 20px;
-        padding-bottom: 20px
-    }
-}
 
 
-.btn:hover,#next_page:hover {
+.btn:hover{
     background: #00a497;
     color: white
 }
@@ -399,14 +396,26 @@
     background: #8e8e8e
 }
 
-@media all and (max-width: 400px) {
-    .btn,#next_page {
-        height:58px;
-        line-height: 58px;
-        font-size: 19px
-    }
+.formpole{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-footer {
-    background: linear-gradient(55deg, #1e87f0, #5f27cd); 
-  }
+@media all and (max-width: 980px) {
+    footer{
+        display: flex!important;
+        align-items: top!important;        
+        justify-content: center!important;      
+    }
+    .formpole{
+        font-size: 30px !important;
+        display: inline-block!important;
+        width: auto!important;
+        margin: 0 auto!important;
+    }
+    .formpole input{
+        padding: 10px 0!important;
+    }
+}
