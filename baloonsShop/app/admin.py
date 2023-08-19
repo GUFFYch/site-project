@@ -1,10 +1,6 @@
 from django.contrib import admin
 from .models import Event, Product, EventImage, ProductImage
 
-# admin.site.register(Event)
-# admin.site.register(Product)
-
-
 
 class EventImageAdmin(admin.StackedInline):
     model = EventImage

@@ -14,13 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from app import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('jet/', include('jet.urls', 'jet')), 
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')), 
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('<event_name>/', views.eventPage),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

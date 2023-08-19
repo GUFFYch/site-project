@@ -79,10 +79,10 @@
 }
 
 .events_list .item a .img .status .today:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
-    background: url("/images/event-today-corner.png") no-repeat;
+    background: url('../static/images/event-today-corner.png') no-repeat;
     width: 10px;
     height: 31px;
     margin-left: -10px;
@@ -125,10 +125,10 @@
 }
 
 .events_list .item a .img .status .price:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
-    background: url("/images/event-price-corner.png") no-repeat;
+    background: url('../static/images/event-price-corner.png') no-repeat;
     width: 12px;
     height: 31px;
     left: -12px;
@@ -164,7 +164,7 @@
     line-height: 50px;
     color: #5d5d5d;
     font-weight: 300;
-    background: url("/images/gray-sep-h.png") bottom left repeat-x
+    background: url('../static/images/gray-sep-h.png') bottom left repeat-x
 }
 
 @media all and (max-width: 400px) {

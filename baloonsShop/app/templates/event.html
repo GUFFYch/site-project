@@ -1,0 +1,276 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{event.name}}</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/css/uikit.min.css"/>
+            <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    </head>
+
+    <body>
+        <header style="width: 95%; margin: auto">
+            <div class="uk-container uk-container-expand">
+
+                <div class="uk-grid uk-grid-small uk-flex uk-flex-middle" uk-grid="uk-grid">
+
+                    <div class="uk-width-auto">
+                        <img class="uk-logo" src="logo.png" alt="Logo">
+                    </div>
+
+                    <div class="uk-width-expand uk-text-center">
+                        <h2 class="uk-h2">Company Name</h2>
+                    </div>
+
+                    <div class="uk-width-auto uk-text-right">
+                        <button class="uk-button uk-button-default" style="border:none" type="button" uk-toggle="target: #offcanvas-nav">
+                            <span uk-icon="menu"></span>
+                        </button>
+
+
+                        <div id="offcanvas-nav" uk-offcanvas="overlay: true; flip: true">
+                            <div class="uk-offcanvas-bar">
+                        
+                                <ul class="uk-nav uk-nav-default">
+                                    {% for item in events %}
+                                        <li class="uk-active"><a href="{{event.name}}" class="uk-text-truncate">{{item.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                        
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+
+        <main class="uk-margin-large">
+            {% for event in events %}
+
+            <h1 class="uk-text-center uk-text-break">{{event.name}}</h1>
+
+            <div
+                class="uk-position-relative uk-visible-toggle uk-light"
+                tabindex="-1"
+                uk-slider="center: true; autoplay: true; autoplay-interval: 4000">
+
+                <ul
+                    class="uk-slider-items uk-grid uk-grid-match uk-child-width-1"
+                    uk-height-viewport="offset-top: true; offset-bottom: 30">
+                    {% for image in event.images %}
+                        <li class="uk-width-3-4">
+                            <div class="uk-panel">
+                                <img src="{{image}}" alt="">
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <a
+                    class="uk-position-center-left uk-position-small uk-hidden-hover"
+                    href="#"
+                    uk-slidenav-previous="uk-slidenav-previous"
+                    uk-slider-item="previous"></a>
+                <a
+                    class="uk-position-center-right uk-position-small uk-hidden-hover"
+                    href="#"
+                    uk-slidenav-next="uk-slidenav-next"
+                    uk-slider-item="next"></a>
+
+            </div>
+
+            <div class="uk-width-3-4" style="margin: 0 auto">
+                <h2>Описание</h2>
+                <h3 class="uk-text-break">{{event.explanation}}</h3>
+
+                <h3 class="uk-text-left">Так же могут быть интересны</h3>
+                
+                <div class="uk-container">
+                    <ul class="events_list">
+
+                        {% for item in event.products %}
+
+                            <li class="item">
+                                <a href="#{{item.name}}" uk-toggle>
+                                    <div class="for-desktop">
+                                        <div class="hov">
+                                            <div class="btn red">
+                                                Подробнее
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="img"
+                                        style="background-image: url('{{item.mainImage}}')">
+                                        <div class="status">
+                                            {% comment %} <div class="today"> {% endcomment %}
+                                                {% comment %} Сегодня {% endcomment %}
+                                            {% comment %} </div> {% endcomment %}
+                                            <div class="price for-desktop">
+                                                От {{item.price}} руб.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="uk-text-break">{{item.name}}</h2>
+                                    <div class="type">
+                                        {% comment %} <p class="uk-text-truncate"> {{item.explanation}} </p> {% endcomment %}
+                                    </div>
+                                    <time class="place" datetime="2023-02-01T08:00:00+03:00">
+                                        <br class="for-desktop">
+                                        <span class="uk-text-trucate place-name">{{item.explanation}}</span>
+                                    </time>
+                                    <div class="mobile_btn for-mobile">
+                                        <div class="btn">
+                                            Купить от {{item.price}} руб.
+                                        </div>
+                                    </div>
+                                </a>
+
+
+
+                                <div id="{{item.name}}" uk-modal>
+                                    <div class="uk-modal-dialog">
+                                
+                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                
+                                        <div class="uk-modal-header">
+                                            <h2 class="uk-modal-title uk-text-break">{{item.name}}</h2>
+                                        </div>
+                                
+                                        <div class="uk-modal-body" uk-overflow-auto>
+                                            <h3>Описание</h3>
+                                            <p class="uk-text-break">{{item.explanation}}</p>
+
+                                            <div class="uk-position-relative" uk-slideshow="animation: fade">
+
+                                                <ul class="uk-slideshow-items">
+                                                    {% for image in item.images %}
+                                                        <li>
+                                                            <img src="{{image}}" alt="" uk-cover>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            
+                                                <div class="uk-position-bottom-center uk-position-small">
+                                                    <ul class="uk-thumbnav">
+                                                        {% for image in item.images %}
+                                                            <li uk-slideshow-item="{{image.id}}"><a href="#"><img src="{{image}}" width="100" height="67" alt=""></a></li>
+                                                        {% endfor %}
+
+                                                    </ul>
+                                                </div>
+                                            
+                                            </div>
+
+                                            <h4>Театические мероприятия</h4>
+                                            {% for event in item.events %}
+                                                <a href="/{{event.name}}/"> 
+                                                    <p class="uk-text-truncate uk-text-light uk-text-muted">{{event.name}}</p>
+                                                </a>
+                                            {% endfor %}
+
+                                        </div>
+                                
+                                        <div class="uk-modal-footer">
+                                            <h5>Оставить заявку</h5>
+                                            <form>
+                                                <fieldset class="uk-fieldset uk-flex uk-flex-middle uk-margin">
+                                                                
+                                                    <div class="">
+                                                        <label>Имя</label>
+                                                        <br>
+                                                        <input class="uk-input uk-form-width-auto" type="text" placeholder="Имя" aria-label="Имя">
+                                                    </div>
+                                            
+                                                    <div class="">
+                                                        <label>Телефон</label>
+                                                        <br>
+                                                        <input class="uk-input uk-form-width-auto" type="number" placeholder="Телефон" required>
+                                                    </div>
+                        
+                                                    <div class="">
+                                                        <label>Товар</label>
+                                                        <br>
+                                                        <select class="uk-select uk-form-width-small" aria-label="Выьерите мероприятие">
+                                                            <option value="{{item.name}}">{{item.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                                
+                                                </fieldset>
+                                                <button type="submit" class="uk-button uk-button-danger uk-button-large">Отправить</button>
+                                            </form>
+                                        </div>
+                                
+                                    </div>
+                                </div>
+                                
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            {% endfor %}
+        </main>
+
+        <footer class="uk-section uk-section-secondary">
+
+            <div class="formpole">
+                <div>
+                    <h1>Закажите у нас</h1>
+                </div>
+                <div>
+                    <form>
+                        <fieldset class="uk-fieldset">
+                                        
+                            <div class="uk-margin">
+                                <label>Имя</label>
+                                <br>
+                                <input class="uk-input uk-form-width-large" type="text" placeholder="Имя" aria-label="Имя">
+                            </div>
+                    
+                            <div class="uk-margin">
+                                <label>Телефон</label>
+                                <br>
+                                <input class="uk-input uk-form-width-large" type="number" placeholder="Телефон"required>
+                            </div>
+
+                            <div class="uk-margin">
+                                <label>Мероприятие</label>
+                                <br>
+                                <select class="uk-select uk-form-width-large" aria-label="Выьерите мероприятие">
+                                    <option disabled>-- Мероприятие --</option>
+                                    {% for event in events %}
+                                        <option value="{{event.name}}">{{event.name}}</option>
+                                    {% endfor %}
+                                    <option disabled>-- Товары --</option>
+                                    {% for product in products %}
+                                        <option value="{{product.name}}">{{product.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                                        
+                            <button type="submit" class="uk-button uk-button-danger uk-button-large">Отправить</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+          
+          </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+    </body>
+</html>
