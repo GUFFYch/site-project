@@ -92,13 +92,13 @@
                 class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin-large"
                 style="box-shadow: none;"
                 uk-grid="uk-grid">
-                <div class="uk-flex-last@m uk-card-media-right uk-cover-container">
+                <div class="uk-flex-last@l uk-card-media-right uk-cover-container">
                     <img src=" {{main.descriptionImage}} " alt="" uk-cover="uk-cover">
                     <canvas width="600" height="400"></canvas>
                 </div>
                 <div>
                     <div class="uk-card-body">
-                        <ul class="uk-nav-primary" uk-nav>
+                        <ul class="uk-nav-primary uk-hidden@l" uk-nav>
                             <li class="uk-parent uk-active">
                                 <a href="#">О нас <span uk-nav-parent-icon></span></a>
                                 <ul class="uk-nav-sub">
@@ -106,8 +106,8 @@
                                 </ul>
                             </li>
                         </ul>
-                        <h3 class="uk-card-title uk-visible@m">О нас</h3>
-                        <p class="uk-text-break uk-visible@m">{{main.descriptionText}}</p>
+                        <h3 class="uk-card-title uk-visible@l">О нас</h3>
+                        <p class="uk-text-break uk-visible@l">{{main.descriptionText}}</p>
                     </div>
                 </div>
             </div>
