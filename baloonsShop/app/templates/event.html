@@ -143,26 +143,27 @@
                                     </div>
                             
                                     <div class="uk-modal-body" uk-overflow-auto>
-                                        <h3>Описание</h3>
-                                        <p class="uk-text-break">{{item.explanation}}</p>
+                                        <h3 class="uk-visible@l">Описание</h3>
+                                        <ul class="uk-nav-primary uk-hidden@l" uk-nav>
+                                            <li class="uk-parent uk-active">
+                                                <a href="#"> <h3>Описание</h3> <span uk-nav-parent-icon></span></a>
+                                                <ul class="uk-nav-sub">
+                                                    <p class="uk-text-break">{{item.explanation}}</p>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <p class="uk-text-break uk-visible@l">{{item.explanation}}</p>
 
                                         <div class="uk-position-relative" style="margin-bottom: 20px" uk-slideshow="animation: fade">
-
-                                            <ul class="uk-slideshow-items">
+                                      
+                                            <div class="uk-child-width-1-3@s" uk-grid uk-lightbox="animation: slide">
                                                 {% for image in item.images %}
-                                                    <li>
-                                                        <img src="{{image}}" alt="" uk-cover>
-                                                    </li>
+                                                <div>
+                                                    <a class="uk-inline" href="{{image}}">
+                                                        <img src="{{image}}" width="1800" height="1200" alt="">
+                                                    </a>
+                                                </div>
                                                 {% endfor %}
-                                            </ul>
-                                        
-                                            <div class="uk-position-bottom-center" style="position: relative; bottom: -50px">
-                                                <ul class="uk-thumbnav uk-flex uk-flex-center uk-flex-middle">
-                                                    {% for image in item.images %}
-                                                        <li uk-slideshow-item="{{image.id}}"><a href="#"><img src="{{image}}" width="50" alt=""></a></li>
-                                                    {% endfor %}
-
-                                                </ul>
                                             </div>
                                         
                                         </div>
@@ -181,7 +182,7 @@
                                     <div class="uk-modal-footer">
                                         <h5>Оставить заявку</h5>
                                         <form method="POST">
-                                            <fieldset class="uk-fieldset uk-flex uk-flex-middle uk-margin">
+                                            <fieldset class="uk-fieldset uk-flex@l uk-flex-row uk-flex-middle uk-margin">
                                                             
                                                 <div class="">
                                                     <label>Имя</label>
