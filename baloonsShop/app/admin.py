@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Event, Product, EventImage, ProductImage
+from .models import *
+
+
+admin.site.register(Request)
 
 
 class EventImageAdmin(admin.StackedInline):
@@ -17,7 +20,6 @@ class EventImageAdmin(admin.ModelAdmin):
     pass
 
 
-
 class ProductImageAdmin(admin.StackedInline):
     model = ProductImage
 
@@ -30,4 +32,19 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
+    pass
+
+
+class CoruselImageAdmin(admin.StackedInline):
+    model = CoruselImage
+
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(admin.ModelAdmin):
+    inlines = [CoruselImageAdmin]
+
+    class Meta:
+       model = SiteSettings
+
+@admin.register(CoruselImage)
+class coruselImageAdmin(admin.ModelAdmin):
     pass
