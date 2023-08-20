@@ -97,8 +97,8 @@
     h2, h3{
         font-size: 40px!important;
     }
-    p, a{
-        font-size: 25px!important;
+    h4, p, a, span, button{
+        font-size: 35px!important;
     }
     .events_list .item a .img {
         display: block;
@@ -109,6 +109,11 @@
         padding-right: 10px;
         font-size: 25px;
     }
+    .modal-window{
+        width: 90%!important;
+        font-size: 30px;
+    }
+
 }
 
 .events_list .item a .img .status .price {
