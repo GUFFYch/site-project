@@ -55,18 +55,21 @@
 
         <main class="uk-margin-large">
             {% if main.images %}
-                <div style="height: 800px; max-width: 1500px; margin: 0 auto"
+            <div class="uk-container">
+
+                <div style="margin: 0 auto"
                     class="uk-position-relative uk-visible-toggle uk-light"
                     tabindex="-1"
-                    uk-slider="center: true; autoplay: true; autoplay-interval: 4000">
+                    uk-slider="center: true; autoplay: true; autoplay-interval: 4000"
+                    uk-height-viewport="offset-top: true">
 
-                    <ul style="height: 800px;"
+                    <ul 
                         class="uk-slider-items uk-grid uk-grid-match uk-child-width-1"
                         uk-height-viewport="offset-top: true; offset-bottom: 30">
                         {% for image in main.images %}
                         <li>
                             <div class="uk-cover-container">
-                                <img src=" {{image}} " alt="" uk-cover="uk-cover">
+                                <img class="uk-img" src=" {{image}} " alt="" uk-cover="uk-cover">
                             </div>
                         </li>
                         {% endfor %}
@@ -85,6 +88,7 @@
                         uk-slider-item="next"></a>
 
                 </div>
+            </div> 
             {% endif %}
             <hr class="uk-margin-large divider">
 

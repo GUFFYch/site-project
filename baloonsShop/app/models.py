@@ -5,7 +5,7 @@ from django.db import models
 
 class Event(models.Model):
     name = models.CharField(max_length=10000, verbose_name="Название праздника", unique=True)
-    explanation = models.TextField(verbose_name="Описание праздника")
+    explanation = models.TextField(verbose_name="Описание праздника", blank=True)
     mainImage = models.ImageField(upload_to='app/static/images/EventImages/', verbose_name="Главное изображение")
     price = models.IntegerField(verbose_name="Цена")
     
@@ -23,10 +23,10 @@ class EventImage(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=10000, verbose_name="Название товара", unique=True)
-    explanation = models.TextField(verbose_name="Описание товара")
+    explanation = models.TextField(verbose_name="Описание товара", blank=True)
     mainImage = models.ImageField(upload_to='app/static/images/ProductEventImages/', verbose_name="Главное изображение")
     price = models.IntegerField(verbose_name="Цена")
-    event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True, verbose_name="Связанный праздник")
+    event = models.ForeignKey(Event, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Связанный праздник")
 
     def __str__(self):
         return f"{self.name}"
@@ -57,7 +57,7 @@ class SiteSettings(models.Model):
 class CoruselImage(models.Model):
     image = models.ImageField(blank=True, upload_to='app/static/images/CoruselImages/', verbose_name="Картинки в карусель")
     post = models.ForeignKey(SiteSettings, default=None, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True, verbose_name="Зависимость к празднику")
+    event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Зависимость к празднику")
     
     def __str__(self):
         return f"Картнка от {self.post} | {self.id}"

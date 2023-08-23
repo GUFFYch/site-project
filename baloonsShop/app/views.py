@@ -12,10 +12,10 @@ def index(request):
     for i in SiteSettings.objects.filter(id = 1):    
         content['main'] = {
             'name': i.name,
-            'logo': i.logoImage,
-            'descriptionImage': i.descriptionmImage,
+            'logo': i.logoImage.url.replace('app/', ''),
+            'descriptionImage': i.descriptionmImage.url.replace('app/', ''),
             'descriptionText': i.descriptionText,
-            'images': [j.image.url for j in i.coruselimage_set.filter(post_id = i.id)]
+            'images': [j.image.url.replace('app/', '') for j in i.coruselimage_set.filter(post_id = i.id)]
             }
     content['events'] = [{
         'name':i.name,
@@ -26,7 +26,7 @@ def index(request):
         'content_type': ContentType.objects.get_for_model(product).model,
         'id': product.id,
         'name': product.name,
-        'link': product.name.replace(' ', '-'),
+        'link': product.name.replace(' ', '-').replace('"', ''),
         'explanation': product.explanation,
         'price': product.price,
         'mainImage': product.mainImage.url.replace('/app/', ''),
@@ -34,7 +34,7 @@ def index(request):
         'events': [{
             'content_type': ContentType.objects.get_for_model(i).model,
             'name': i.name,
-            'link': i.name.replace(' ', '-')
+            'link': i.name.replace(' ', '-').replace('"', '')
             } for i in Event.objects.filter(product__id = product.id)]
         } for product in Product.objects.all()]
     
@@ -97,7 +97,7 @@ def eventPage(request, event_name):
         'products': [{
             'content_type': ContentType.objects.get_for_model(product).model,
             'name': product.name,
-            'link': product.name.replace(' ', '-'),
+            'link': product.name.replace(' ', '-').replace('"', ''),
             'explanation': product.explanation,
             'price': product.price,
             'mainImage': product.mainImage.url,
