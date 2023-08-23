@@ -55,40 +55,33 @@
 
         <main class="uk-margin-large">
             {% if main.images %}
-            <div class="uk-container">
+            <div style="margin:auto; width: 100%">
 
-                <div style="margin: 0 auto"
-                    class="uk-position-relative uk-visible-toggle uk-light"
-                    tabindex="-1"
-                    uk-slider="center: true; autoplay: true; autoplay-interval: 4000"
-                    uk-height-viewport="offset-top: true">
+                <div
+                    uk-slideshow="animation: push; ratio: 7:3; autoplay: true; pause-on-hover: true; min-height: 300; max-height: 500">
 
-                    <ul 
-                        class="uk-slider-items uk-grid uk-grid-match uk-child-width-1"
-                        uk-height-viewport="offset-top: true; offset-bottom: 30">
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                        <ul class="uk-slideshow-items">
                         {% for image in main.images %}
-                        <li>
-                            <div class="uk-cover-container">
-                                <img class="uk-img" src=" {{image}} " alt="" uk-cover="uk-cover">
-                            </div>
-                        </li>
+
+                            <li>
+                                <img class="uk-img" src="{{image}}" alt="" uk-cover>
+
+                            </li>
                         {% endfor %}
 
-                    </ul>
+                        </ul>
 
-                    <a
-                        class="uk-position-center-left uk-position-small uk-hidden-hover"
-                        href="#"
-                        uk-slidenav-previous="uk-slidenav-previous"
-                        uk-slider-item="previous"></a>
-                    <a
-                        class="uk-position-center-right uk-position-small uk-hidden-hover"
-                        href="#"
-                        uk-slidenav-next="uk-slidenav-next"
-                        uk-slider-item="next"></a>
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                            uk-slideshow-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                            uk-slideshow-item="next"></a>
+
+                    </div>
 
                 </div>
-            </div> 
+            </div>
             {% endif %}
             <hr class="uk-margin-large divider">
 
@@ -137,14 +130,13 @@
                                     class="img"
                                     style="background-image: url('{{item.mainImage}}'); background-position: center">
                                     <div class="status">
-                                        <div class="price for-desktop">
+                                        <div class="uk-text-bold price for-desktop">
                                             От {{item.price}} руб.
                                         </div>
                                     </div>
                                 </div>
                                 <h2 class="uk-text-break">{{item.name}}</h2>
                                 <div class="type">
-                                    {% comment %} <p class="uk-text-truncate"> {{item.explanation}} </p> {% endcomment %}
                                 </div>
                                 <time class="place" datetime="2023-02-01T08:00:00+03:00">
                                     <br class="for-desktop">
@@ -183,6 +175,11 @@
                                         <div class="uk-position-relative" style="margin-bottom: 20px" uk-slideshow="animation: fade">
                                       
                                             <div class="uk-child-width-1-2" uk-grid uk-lightbox="animation: slide">
+                                                <div>
+                                                    <a class="uk-inline" href="{{item.mainImage}}">
+                                                        <img src="{{item.mainImage}}" width="1800" height="1200" alt="">
+                                                    </a>
+                                                </div>
                                                 {% for image in item.images %}
                                                 <div>
                                                     <a class="uk-inline" href="{{image}}">
@@ -206,34 +203,41 @@
                                     </div>
                             
                                     <div class="uk-modal-footer">
-                                        <h4>Оставить заявку</h4>
-                                        <form method="POST">
-                                            <fieldset class="uk-fieldset uk-flex-row uk-flex-middle uk-margin">
-                                                            
-                                                <div class="uk-margin">
-                                                    <label>Имя</label>
-                                                    <br>
-                                                    <input class="uk-input uk-width-1" type="text" name="name" placeholder="Имя" aria-label="Имя">
-                                                </div>
+                                        <ul class="uk-nav-primary" uk-nav>
+                                            <li class="uk-parent uk-active">
+                                                <a href="#" class="padding: 0 20xp"> <h4>Оставить заявку</h4> <span uk-nav-parent-icon></span></a>
+                                                <ul class="uk-nav-sub">
+                                                    <form method="POST">
+                                                        <fieldset class="uk-fieldset uk-flex-row uk-flex-middle uk-margin">
+                                                                        
+                                                            <div class="uk-margin">
+                                                                <label>Имя</label>
+                                                                <br>
+                                                                <input class="uk-input uk-width-1" type="text" name="name" placeholder="Имя" aria-label="Имя">
+                                                            </div>
+                                                    
+                                                            <div class="uk-margin">
+                                                                <label>Телефон</label>
+                                                                <br>
+                                                                <input class="uk-input uk-width-1" name="phone" type="number" placeholder="Телефон"required>
+                                                            </div>
+                                
+                                                            <div class="uk-margin">
+                                                                <label>Товар</label>
+                                                                <br>
+                                                                <select class="uk-select uk-width-1" name="item" aria-label="Выьерите мероприятие">
+                                                                    <option value="{{item.id}}|{{item.content_type}}">{{item.name}}</option>
+                                                                </select>
+                                                            </div>
+                                                                        
+                                                        </fieldset>
+                                                        {% csrf_token %}
+                                                        <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1 uk-text-bold" style="padding: 10px 0; background-color: #3bd9cc; color: black">Отправить</button>
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                         
-                                                <div class="uk-margin">
-                                                    <label>Телефон</label>
-                                                    <br>
-                                                    <input class="uk-input uk-width-1" name="phone" type="number" placeholder="Телефон"required>
-                                                </div>
-                    
-                                                <div class="uk-margin">
-                                                    <label>Товар</label>
-                                                    <br>
-                                                    <select class="uk-select uk-width-1" name="item" aria-label="Выьерите мероприятие">
-                                                        <option value="{{item.id}}|{{item.content_type}}">{{item.name}}</option>
-                                                    </select>
-                                                </div>
-                                                            
-                                            </fieldset>
-                                            {% csrf_token %}
-                                            <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1" style="padding: 10px 0">Отправить</button>
-                                        </form>
                                     </div>
                             
                                 </div>
@@ -283,7 +287,7 @@
                                 </select>
                             </div>
                             {% csrf_token %}
-                            <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1" style="padding: 10px 0">Отправить</button>
+                            <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1 uk-text-bold" style="padding: 10px 0;  background-color: #3bd9cc; color: black">Отправить</button>
                         </fieldset>
                     </form>
                 </div>

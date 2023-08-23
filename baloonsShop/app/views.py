@@ -67,7 +67,7 @@ def eventPage(request, event_name):
     for i in SiteSettings.objects.filter(id = 1):    
         content['main'] = {
             'name': i.name,
-            'logo': i.logoImage,
+            'logo': i.logoImage.url.replace('/app/', '../'),
             'descriptionImage': i.descriptionmImage,
             'descriptionText': i.descriptionText,
             'images': [j.image.url for j in i.coruselimage_set.filter(post_id = i.id)]
@@ -92,16 +92,16 @@ def eventPage(request, event_name):
         'name': event.name,
         'explanation': event.explanation,
         'price': event.price,
-        'mainImage': event.mainImage.url.replace('/app/', ''),
-        'images': [i.image.url for i in event.eventimage_set.filter(post_id = event.id)],
+        'mainImage': event.mainImage.url.replace('/app/', '../'),
+        'images': [i.image.url.replace('/app/', '../') for i in event.eventimage_set.filter(post_id = event.id)],
         'products': [{
             'content_type': ContentType.objects.get_for_model(product).model,
             'name': product.name,
             'link': product.name.replace(' ', '-').replace('"', ''),
             'explanation': product.explanation,
             'price': product.price,
-            'mainImage': product.mainImage.url,
-            'images': [i.image.url for i in product.productimage_set.filter(post_id = product.id)]}
+            'mainImage': product.mainImage.url.replace('/app/', '../'),
+            'images': [i.image.url.replace('/app/', '../') for i in product.productimage_set.filter(post_id = product.id)]}
             for product in Product.objects.filter(event_id = event.id)],
         } for event in Event.objects.filter(name = event_name)]
     
