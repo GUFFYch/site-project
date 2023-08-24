@@ -14,7 +14,7 @@
     </head>
 
     <body>
-        <header style="width: 95%; margin: auto">
+        <header style="width: 95%; max-widtth: 2000px; margin: 0 auto">
             <div class="uk-container uk-container-expand" style="margin-top: 20px!important">
 
                 <div class="uk-grid uk-grid-small uk-flex uk-flex-middle" uk-grid="uk-grid">
@@ -53,12 +53,12 @@
             </div>
         </header>
 
-        <main class="uk-margin-large">
+        <main class="uk-margin-large" style="max-width: 2000px; margin: 0 auto">
             {% if main.images %}
             <div style="margin:auto; width: 100%">
 
                 <div
-                    uk-slideshow="animation: push; ratio: 7:3; autoplay: true; pause-on-hover: true; min-height: 300; max-height: 500">
+                    uk-slideshow="animation: push; ratio: 7:3; autoplay: true; pause-on-hover: true; min-height: 400px; max-height: 800px">
 
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
