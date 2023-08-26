@@ -196,19 +196,12 @@ def productPage(request, product_name):
         'rate_sum': product.rate_sum,
         'vote_sum': product.vote_sum,
         'rating': product.rating,
-        'images': [{'url': i.image.url.replace('/app/', '../../'), 'id':i.id} for i in Product.Productimage_set.filter(post_id = product.id)],
-        'products': [{
-            'content_type': ContentType.objects.get_for_model(product).model,
-            'name': product.name,
-            'link': product.name.replace(' ', '-').replace('"', ''),
-            'explanation': product.explanation,
-            'price': product.price,
-            'mainImage': product.mainImage.url.replace('/app/', '../../'),
-            'rate_sum': product.rate_sum,
-            'vote_sum': product.vote_sum,
-            'rating': product.rating,
-            'images': [i.image.url.replace('/app/', '../../') for i in Product.productimage_set.filter(post_id = product.id)]}
-            for product in Product.objects.filter(product_id = product.id)],
+        'images': [{'url': i.image.url.replace('/app/', '../../'), 'id':i.id} for i in product.productimage_set.filter(post_id = product.id)],
+        'events': [{
+            'content_type': ContentType.objects.get_for_model(i).model,
+            'name': i.name,
+            'link': i.name.replace(' ', '-').replace('"', '')
+            } for i in Event.objects.filter(product__id = product.id)],
         'comments': [comment for comment in CommentsProduct.objects.filter(product = product)]
         } for product in Product.objects.filter(name = product_name)]
     

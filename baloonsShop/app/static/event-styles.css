@@ -12,20 +12,14 @@
     display: none;
 }
 
-.product-imgs{
-    display: flex;
-
-}
-
 .img-select{
     display: flex;
     flex-direction: column;
-    max-width: 10vw;
+    max-width: 150px;
 }
 
 .img-item{
-    margin: 0.3rem;
-    /* border: 2px solid #000; */
+    margin: 10px 10px 0 0!important;
 }
 
 .img-item:hover{
@@ -33,12 +27,8 @@
 }
 
 .img-display{
-    /* height: 70vh; */
     max-height: 80%;
-
     overflow: hidden;
-    /* border: 2px solid #000; */
-
 }
 
 .img-showcase{

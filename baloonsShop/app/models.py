@@ -143,16 +143,20 @@ def countTime(dateCreate):
     minutes, seconds = divmod(remainder, 60)
 
     time_parts = []
+    if days > 14:
+        time_parts.append(now)
+        days = hours = minutes = seconds = 0            
     if days > 0:
-        time_parts.append(f"{days} дней ")
-        hours = minutes = seconds = 0
+        time_parts.append(f"{days} д назад ")
+        hours = minutes = seconds = 0            
     if hours > 0:
-        time_parts.append(f"{hours} ч ")
+        time_parts.append(f"{hours} ч назад")
+        seconds = minutes = 0
     if minutes > 0:
-        time_parts.append(f"{minutes} мин ")
+        time_parts.append(f"{minutes} мин назад")
         seconds = 0
     if seconds > 0:
-        time_parts.append(f"{seconds} с ")
+        time_parts.append(f"{seconds} с назад")
 
     formatted_time = " ".join(time_parts)
-    return formatted_time + "назад"
+    return formatted_time

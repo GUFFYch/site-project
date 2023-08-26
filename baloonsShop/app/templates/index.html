@@ -117,7 +117,7 @@
                     {% for item in products %}
 
                         <li class="item">
-                            <a href="product/{{item.link}}">
+                            <a href="product/{{item.link}}/">
                                 <div class="for-desktop">
                                     <div class="hov">
                                         <div class="btn red">
@@ -148,101 +148,6 @@
                                     </div>
                                 </div>
                             </a>
-
-
-
-                            <!-- <div id="{{item.link}}" uk-modal>
-                                <div class="uk-modal-dialog modal-window">
-                            
-                                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                            
-                                    <div class="uk-modal-header">
-                                        <h2 class="uk-modal-title uk-text-break">{{item.name}}</h2>
-                                    </div>
-                            
-                                    <div class="uk-modal-body" uk-overflow-auto>
-                                        <h3 class="uk-visible@l">Описание</h3>
-                                        <ul class="uk-nav-primary uk-hidden@l" uk-nav>
-                                            <li class="uk-parent uk-active">
-                                                <a href="#" class="padding: 0 20xp"> <h3>Описание</h3> <span uk-nav-parent-icon></span></a>
-                                                <ul class="uk-nav-sub">
-                                                    <p class="uk-text-break">{{item.explanation}}</p>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <p class="uk-text-break uk-visible@l">{{item.explanation}}</p>
-
-                                        <div class="uk-position-relative" style="margin-bottom: 20px" uk-slideshow="animation: fade">
-                                      
-                                            <div class="uk-child-width-1-2" uk-grid uk-lightbox="animation: slide">
-                                                <div>
-                                                    <a class="uk-inline" href="{{item.mainImage}}">
-                                                        <img src="{{item.mainImage}}" width="1800" height="1200" alt="">
-                                                    </a>
-                                                </div>
-                                                {% for image in item.images %}
-                                                <div>
-                                                    <a class="uk-inline" href="{{image}}">
-                                                        <img src="{{image}}" width="1800" height="1200" alt="">
-                                                    </a>
-                                                </div>
-                                                {% endfor %}
-                                            </div>
-                                        
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <h4>Театические мероприятия</h4>
-                                        {% for event in item.events %}
-                                            <a class="uk-link-text" href="/{{event.name}}/"> 
-                                                <p class="uk-text-truncate uk-text-light uk-text-muted"> ⇛ {{event.name}}</p>
-                                            </a>
-                                        {% endfor %}
-
-                                    </div>
-                            
-                                    <div class="uk-modal-footer">
-                                        <ul class="uk-nav-primary" uk-nav>
-                                            <li class="uk-parent uk-active">
-                                                <a href="#" class="padding: 0 20xp"> <h4>Оставить заявку</h4> <span uk-nav-parent-icon></span></a>
-                                                <ul class="uk-nav-sub">
-                                                    <form method="POST">
-                                                        <fieldset class="uk-fieldset uk-flex-row uk-flex-middle uk-margin">
-                                                                        
-                                                            <div class="uk-margin">
-                                                                <label>Имя</label>
-                                                                <br>
-                                                                <input class="uk-input uk-width-1" type="text" name="name" placeholder="Имя" aria-label="Имя">
-                                                            </div>
-                                                    
-                                                            <div class="uk-margin">
-                                                                <label>Телефон</label>
-                                                                <br>
-                                                                <input class="uk-input uk-width-1" name="phone" type="number" placeholder="Телефон"required>
-                                                            </div>
-                                
-                                                            <div class="uk-margin">
-                                                                <label>Товар</label>
-                                                                <br>
-                                                                <select class="uk-select uk-width-1" name="item" aria-label="Выьерите мероприятие">
-                                                                    <option value="{{item.id}}|{{item.content_type}}">{{item.name}}</option>
-                                                                </select>
-                                                            </div>
-                                                                        
-                                                        </fieldset>
-                                                        {% csrf_token %}
-                                                        <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1 uk-text-bold" style="padding: 10px 0; background-color: #3bd9cc; color: black">Отправить</button>
-                                                    </form>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        
-                                    </div>
-                            
-                                </div>
-                            </div> -->
-                            
                         </li>
 
                     {% endfor %}
