@@ -40,7 +40,7 @@
                         
                                 <ul class="uk-nav uk-nav-default">
                                     {% for event in events %}
-                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                        <li class="uk-active"><a href="/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
                                     {% endfor %}
                                 </ul>
                         
@@ -117,7 +117,7 @@
                     {% for item in products %}
 
                         <li class="item">
-                            <a href="product/{{item.link}}">
+                            <a href="#{{item.link}}" uk-toggle>
                                 <div class="for-desktop">
                                     <div class="hov">
                                         <div class="btn red">
@@ -151,7 +151,7 @@
 
 
 
-                            <!-- <div id="{{item.link}}" uk-modal>
+                            <div id="{{item.link}}" uk-modal>
                                 <div class="uk-modal-dialog modal-window">
                             
                                     <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -241,7 +241,7 @@
                                     </div>
                             
                                 </div>
-                            </div> -->
+                            </div>
                             
                         </li>
 

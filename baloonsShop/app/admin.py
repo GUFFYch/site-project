@@ -6,8 +6,10 @@ from .models import *
 
 
 admin.site.register(Request)
+admin.site.register(CommentsEvent)
+admin.site.register(CommentsProduct)
 
-
+# start of event sector
 class EventImageAdmin(admin.StackedInline):
     model = EventImage
 
@@ -22,7 +24,22 @@ class EventAdmin(admin.ModelAdmin):
 class EventImageAdmin(admin.ModelAdmin):
     pass
 
+class CommentsInline(admin.TabularInline):
+    model = CommentsEvent
 
+class EventAdmin(admin.ModelAdmin):
+    inlines = [CommentsInline]
+    
+class EventAdmin(admin.ModelAdmin):
+    inlines = [CommentsInline]
+
+    readonly_fields = ('comments',)
+
+    def comments(self, obj):
+        return obj.comments_event_set.all()
+
+
+# start of product sector
 class ProductImageAdmin(admin.StackedInline):
     model = ProductImage
 
@@ -51,3 +68,16 @@ class SiteSettingsAdmin(admin.ModelAdmin):
 @admin.register(CoruselImage)
 class coruselImageAdmin(admin.ModelAdmin):
     pass
+
+class CommentsInline(admin.TabularInline):
+    model = CommentsProduct
+    
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [CommentsInline]
+    
+class ProductAdmin(admin.ModelAdmin):
+
+    readonly_fields = ('comments',)  
+
+    def comments(self, obj):
+       return obj.commentsproduct_set.all()
