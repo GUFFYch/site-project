@@ -42,6 +42,21 @@
                                     {% for event in events %}
                                         <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
                                     {% endfor %}
+                                    {% for event in events %}
+                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                    {% endfor %}
+                                    {% for event in events %}
+                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                    {% endfor %}
+                                    {% for event in events %}
+                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                    {% endfor %}
+                                    {% for event in events %}
+                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                    {% endfor %}
+                                    {% for event in events %}
+                                        <li class="uk-active"><a href="event/{{event.link}}/" class="uk-text-truncate" style="padding: 0 20px; margin: 20px 0">{{event.name}}</a></li>
+                                    {% endfor %}
                                 </ul>
                         
                             </div>
@@ -182,7 +197,7 @@
                                 <br>
                                 <select class="uk-select uk-form-width-large" name="item" aria-label="Выьерите мероприятие">
                                     <option disabled>-- Мероприятие --</option>
-                                    {% for event in all_events %}
+                                    {% for event in events %}
                                         <option value="{{event.id}}|{{event.content_type}}">{{event.name}}</option>
                                     {% endfor %}
                                     <option disabled>-- Товары --</option>

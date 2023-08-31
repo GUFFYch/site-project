@@ -56,98 +56,36 @@
     {% for item in event %}
     <div class="uk-width-4-5" style="margin: 0  auto">
 
-        <div class="container uk-flex uk-flex-around uk-flex-top" style="margin: 20px auto">
+        <div style="margin:auto; width: 100%">
 
-            <!-- photo slider -->
-            <div class="uk-width-1 uk-position-relative uk-visible-toggle uk-light" style="position: sticky; top: 10px;" tabindex="-1" uk-slider>
+                <div
+                    uk-slideshow="animation: push; ratio: 7:3; autoplay: true; pause-on-hover: true; min-height: 400px; max-height: 800px">
 
-                <div class = "product-imgs uk-flex">
-                    <div class = "img-select">
-                        <div class = "img-item" style="margin-top: 0;">
-                            <a href = "#" data-id="0">
-                                <img src = "{{item.mainImage}}">
-                            </a>
-                        </div>
-                    {% for image in item.images %}
-                        <div class = "img-item" style="margin-top: 0;">
-                            <a href = "#" data-id="{{image.id}}">
-                                <img src = "{{image.url}}">
-                            </a>
-                        </div>
-                    {% endfor %}
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                        <ul class="uk-slideshow-items">
+                            <li>
+                                <img class="uk-img" src="{{item.mainImage}}" alt="" uk-cover>
+
+                            </li>
+                        {% for image in item.images %}
+                            <li>
+                                <img class="uk-img" src="{{image.url}}" alt="" uk-cover>
+
+                            </li>
+                        {% endfor %}
+
+                        </ul>
+
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                            uk-slideshow-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                            uk-slideshow-item="next"></a>
+
                     </div>
-                    
-                    <div class = "img-display">
-                        <div class = "img-showcase">
-                            <img class="uk-img" src = "{{item.mainImage}}">
-                            {% for image in item.images %}
-                                <img class="uk-img" src = "{{image.url}}">
-                            {% endfor %}
-                        </div>
-                    </div>
-                    
+
                 </div>
-
             </div>
-
-        
-            <!-- bying sector -->
-            <div class="uk-flex uk-flex-column uk-width-1-3 uk-text-center" style="padding-left: 5%; position: sticky; top: 10px;">
-
-                <h2 class="uk-width-1 uk-text-break" style="text-align: left; font-weight: 600;"> {{item.name}} </h2>
-                <h3 class="uk-width-1 uk-text-break" style="text-align: left; font-weight: 400;">Стоимость: {{item.price}} ₽</h3>
-
-                <div class="uk-text-left uk-margin-top">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <a class="uk-button uk-button-secondary uk-width-1 uk-text-bold uk-margin-small-bottom"
-                            style="background-color: #B54F00;" href="#ordering-window" uk-toggle>Заказать</a>
-                    </form>
-                    <div id="ordering-window" uk-modal>
-                        <div class="uk-modal-dialog" style="margin: 0 auto; padding: 10px">
-                            <div>
-                                <button class="uk-modal-close-default" type="button" uk-close></button>
-                            </div>
-                            <div class="uk-modal-header">
-                                <div style="margin-top: 2%">
-                                    <h3 style="text-align: center;">Оформление заказа</h3>
-                                </div>
-                            </div>
-                           <form method="POST" class="uk-margin-small-top">
-                                <fieldset class="uk-fieldset uk-width-1-2" style="margin: 0 auto">
-                                                
-                                    <div class="uk-margin">
-                                        <label>Имя</label>
-                                        <br>
-                                        <input class="uk-input uk-form-width-large" type="text" name="name" placeholder="Имя" aria-label="Имя">
-                                    </div>
-                            
-                                    <div class="uk-margin">
-                                        <label>Телефон</label>
-                                        <br>
-                                        <input class="uk-input uk-form-width-large" name="phone" type="number" placeholder="Телефон"required>
-                                    </div>
-
-
-                                    <div class="uk-margin">
-                                        <label>Мероприятие</label>
-                                        <br>
-                                        <select class="uk-select uk-form-width-large" name="item" aria-label="Выьерите мероприятие">
-                                                <option value="{{item.id}}|{{item.content_type}}">{{item.name}}</option>
-                                        </select>
-                                    </div>
-                                    {% csrf_token %}
-                                    <button type="submit" name="requestButton" class="uk-button uk-button-danger uk-button-large uk-width-1 uk-text-bold" style="padding: 10px 0;  background-color: #3bd9cc; color: black">Отправить</button>
-                                </fieldset>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>               
-
-            </div>
-
-        </div>
 
         <div class="uk-text-left uk-margin-large-top">
                 <h2>Описание</h2>
@@ -159,6 +97,49 @@
         </div>
         <br>
         <br>
+
+         <div class="uk-container">
+                <ul class="events_list">
+
+                    {% for item in products %}
+
+                        <li class="item">
+                            <a href="product/{{item.link}}/">
+                                <div class="for-desktop">
+                                    <div class="hov">
+                                        <div class="btn red">
+                                            Подробнее
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="img"
+                                    style="background-image: url('{{item.mainImage}}'); background-position: center">
+                                    <div class="status">
+                                        <div class="uk-text-bold price for-desktop">
+                                            От {{item.price}} руб.
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="uk-text-break">{{item.name}}</h2>
+                                <div class="type">
+                                </div>
+                                <time class="place" datetime="2023-02-01T08:00:00+03:00">
+                                    <br class="for-desktop">
+                                    <span class="uk-text-trucate place-name">{{item.explanation}}</span>
+                                </time>
+                                <div class="mobile_btn for-mobile">
+                                    <div class="btn">
+                                        Заказать от {{item.price}} руб.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            </div>
 
         <div>
 

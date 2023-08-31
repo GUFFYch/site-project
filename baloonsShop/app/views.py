@@ -141,7 +141,7 @@ def eventPage(request, event_name):
                 event=item if isinstance(item, Event) else None,
                 product=item if isinstance(item, Product) else None,
             )
-        return HttpResponseRedirect(f'event/{org_event_name}/')
+        return HttpResponseRedirect(f'/event/{org_event_name}/')
     
     if request.method == 'POST' and 'CommentEventBtn' in request.POST:
         event = Event.objects.get(name = event_name)
@@ -155,7 +155,7 @@ def eventPage(request, event_name):
         event.rating = round((event.vote_sum + int(request.POST.get('rating', '0')))/(event.rate_sum + 1), 1)
         comment.save()
         event.save()
-        return HttpResponseRedirect(f'event/{org_event_name}/')
+        return HttpResponseRedirect(f'/event/{org_event_name}/')
     
     return sized_render(request, 'event.html', content)
 
@@ -222,7 +222,7 @@ def productPage(request, product_name):
                 contact=request.POST['phone'],
                 product=item if isinstance(item, product) else None,
             )
-        return HttpResponseRedirect(f'product/{org_product_name}/')
+        return HttpResponseRedirect(f'/product/{org_product_name}/')
     
     if request.method == 'POST' and 'CommentproductBtn' in request.POST:
         product = Product.objects.get(name = product_name)
@@ -236,6 +236,6 @@ def productPage(request, product_name):
         product.rating = round((product.vote_sum + int(request.POST.get('rating', '0')))/(product.rate_sum + 1), 1)
         comment.save()
         product.save()
-        return HttpResponseRedirect(f'product/{org_product_name}/')
+        return HttpResponseRedirect(f'/product/{org_product_name}/')
     
     return sized_render(request, 'product.html', content)
